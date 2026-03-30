@@ -3,8 +3,17 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
   const { email, password } = await request.json();
 
-  const validEmail = process.env.ADMIN_EMAIL || "admin@rolka.pl";
-  const validPassword = process.env.ADMIN_PASSWORD || "bezpieczne123";
+  const validEmail =
+    process.env.ADMIN_EMAIL || "klientka@rolka-ubezpieczenia.pl";
+  const validPassword = process.env.ADMIN_PASSWORD || "TestHaslo123!";
+
+  console.log("LOGIN ATTEMPT:", {
+    receivedEmail: email,
+    receivedPassword: password,
+    validEmail,
+    validPassword,
+    match: email === validEmail && password === validPassword,
+  });
 
   if (email === validEmail && password === validPassword) {
     const res = NextResponse.json({ success: true });
