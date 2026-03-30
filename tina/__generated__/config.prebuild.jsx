@@ -1,19 +1,19 @@
+// tina/config.ts
 import { defineConfig } from "tinacms";
-
-export default defineConfig({
+var config_default = defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
   token: process.env.TINA_TOKEN || "",
   branch: process.env.TINA_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || "main",
   client: { skip: true },
   build: {
     outputFolder: "admin",
-    publicFolder: "public",
+    publicFolder: "public"
   },
   media: {
     tina: {
       mediaRoot: "",
-      publicFolder: "public",
-    },
+      publicFolder: "public"
+    }
   },
   schema: {
     collections: [
@@ -25,57 +25,59 @@ export default defineConfig({
         ui: {
           allowedActions: {
             create: false,
-            delete: false,
-          },
+            delete: false
+          }
         },
         match: {
-          include: "home",
+          include: "home"
         },
         fields: [
           {
             type: "string",
             name: "hero_title",
             label: "Hero title",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "hero_subtitle",
             label: "Hero subtitle",
-            required: true,
+            required: true
           },
           {
             type: "image",
             name: "hero_image",
-            label: "Hero image",
+            label: "Hero image"
           },
           {
             type: "rich-text",
             name: "about_text",
             label: "About text",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "contact_phone",
             label: "Contact phone",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "contact_email",
             label: "Contact email",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "contact_address",
             label: "Contact address",
-            required: true,
-          },
-        ],
-      },
-    ],
-  },
+            required: true
+          }
+        ]
+      }
+    ]
+  }
 });
-
+export {
+  config_default as default
+};

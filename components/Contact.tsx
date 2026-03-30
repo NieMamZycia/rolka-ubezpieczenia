@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 
-export default function Contact() {
+type ContactProps = {
+  phone: string;
+  email: string;
+  address: string;
+};
+
+export default function Contact({ phone, email, address }: ContactProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle"
   );
@@ -50,19 +56,20 @@ export default function Contact() {
             <div className="space-y-2">
               <p>
                 <span className="font-semibold text-primary">Telefon:</span>{" "}
-                <a href="tel:+48123456789" className="underline-offset-2">
-                  +48 123 456 789
+                <a
+                  href={`tel:${phone.replace(/\s+/g, "")}`}
+                  className="underline-offset-2"
+                >
+                  {phone}
                 </a>
               </p>
               <p>
                 <span className="font-semibold text-primary">E-mail:</span>{" "}
-                <a href="mailto:kontakt@rolka-ubezpieczenia.pl">
-                  kontakt@rolka-ubezpieczenia.pl
-                </a>
+                <a href={`mailto:${email}`}>{email}</a>
               </p>
               <p>
                 <span className="font-semibold text-primary">Adres:</span>{" "}
-                Nowy Sącz, ul. Przykładowa 1
+                {address}
               </p>
             </div>
             <p className="text-xs text-gray-500">

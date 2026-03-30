@@ -3,14 +3,23 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import home from "@/content/pages/home.json";
 
 export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col bg-background">
-      <Hero />
-      <About />
+      <Hero
+        title={home.hero_title}
+        subtitle={home.hero_subtitle}
+        imageSrc={home.hero_image || undefined}
+      />
+      <About aboutText={home.about_text} />
       <Services />
-      <Contact />
+      <Contact
+        phone={home.contact_phone}
+        email={home.contact_email}
+        address={home.contact_address}
+      />
 
       <section
         id="polityka-prywatnosci"
