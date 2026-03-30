@@ -13,21 +13,7 @@ export default function AdminPage() {
     clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
     branch: process.env.NEXT_PUBLIC_TINA_BRANCH || "main",
     token: process.env.NEXT_PUBLIC_TINA_TOKEN!,
-    isLocalClient: false,
-    authProvider: {
-      onLogin: async () => {
-        console.log("TinaCMS: Login successful");
-        return true;
-      },
-      onLogout: async () => {
-        console.log("TinaCMS: Logout");
-        window.location.href = '/';
-      },
-      authenticate: async () => {
-        console.log("TinaCMS: Authenticating...");
-        return true;
-      },
-    },
+    isLocalClient: true, // ← TRYB LOKALNY
   });
 
   return (
