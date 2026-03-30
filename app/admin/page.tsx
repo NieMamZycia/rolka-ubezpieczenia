@@ -12,6 +12,7 @@ export default function AdminPage() {
   const cms = new TinaCMS({
     clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
     branch: process.env.NEXT_PUBLIC_TINA_BRANCH || "main",
+    token: process.env.NEXT_PUBLIC_TINA_TOKEN!,
     isLocalClient: false,
   });
 
