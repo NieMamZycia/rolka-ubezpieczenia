@@ -1,0 +1,10 @@
+fragment HomepageParts on Homepage {
+  __typename
+  hero_title
+  hero_subtitle
+  hero_image
+  about_text
+  contact_phone
+  contact_email
+  contact_address
+}

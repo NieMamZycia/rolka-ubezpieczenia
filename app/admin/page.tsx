@@ -1,6 +1,7 @@
 "use client";
 
-import { TinaCMS, TinaProvider } from "tinacms";
+import { useTina } from "tinacms/dist/react";
+import { client } from "@/tina/__generated__/client";
 import dynamic from "next/dynamic";
 
 const TinaAdmin = dynamic(
@@ -9,18 +10,9 @@ const TinaAdmin = dynamic(
 );
 
 export default function AdminPage() {
-  const cms = new TinaCMS({
-    clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
-    branch: process.env.NEXT_PUBLIC_TINA_BRANCH || "main",
-    token: process.env.NEXT_PUBLIC_TINA_TOKEN!,
-    isLocalClient: true, // ← TRYB LOKALNY
-  });
-
   return (
-    <TinaProvider cms={cms}>
-      <div className="min-h-screen bg-white">
-        <TinaAdmin />
-      </div>
-    </TinaProvider>
+    <div className="min-h-screen bg-white">
+      <TinaAdmin />
+    </div>
   );
 }

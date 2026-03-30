@@ -1,10 +1,9 @@
 // tina/config.ts
 import { defineConfig } from "tinacms";
 var config_default = defineConfig({
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
-  token: process.env.TINA_TOKEN || "",
-  branch: process.env.TINA_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || "main",
-  client: { skip: true },
+  branch: process.env.NEXT_PUBLIC_TINA_BRANCH || "main",
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+  token: process.env.NEXT_PUBLIC_TINA_TOKEN,
   build: {
     outputFolder: "admin",
     publicFolder: "public"
@@ -22,56 +21,42 @@ var config_default = defineConfig({
         label: "Homepage",
         path: "content/pages",
         format: "json",
-        ui: {
-          allowedActions: {
-            create: false,
-            delete: false
-          }
-        },
-        match: {
-          include: "home"
-        },
         fields: [
           {
             type: "string",
             name: "hero_title",
-            label: "Hero title",
+            label: "Hero Title",
             required: true
           },
           {
             type: "string",
             name: "hero_subtitle",
-            label: "Hero subtitle",
-            required: true
+            label: "Hero Subtitle"
           },
           {
-            type: "image",
+            type: "string",
             name: "hero_image",
-            label: "Hero image"
+            label: "Hero Image URL"
           },
           {
             type: "rich-text",
             name: "about_text",
-            label: "About text",
-            required: true
+            label: "About Text"
           },
           {
             type: "string",
             name: "contact_phone",
-            label: "Contact phone",
-            required: true
+            label: "Contact Phone"
           },
           {
             type: "string",
             name: "contact_email",
-            label: "Contact email",
-            required: true
+            label: "Contact Email"
           },
           {
             type: "string",
             name: "contact_address",
-            label: "Contact address",
-            required: true
+            label: "Contact Address"
           }
         ]
       }
